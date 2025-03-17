@@ -20,7 +20,7 @@ const nums = [
   "=",
 ];
 let toEval = {
-  num1: 0,
+  num1: null,
   operator: null,
   num2: null,
 };
@@ -56,15 +56,26 @@ for (i = 0; i < nums.length; i++) {
       if (display.value === "" || display.value.includes(val)) {
         return;
       }
-      if(toEval.num1==0){
-      toEval.num1 = display.value;
+      if(toEval.num1==null){
+      toEval.num1 = display.value;      
+      console.log(toEval.num1);
       display.value = "";
       toEval.operator = val
-      console.log(toEval.num1);
+      display.value = "";
+      console.log(toEval);
+      return;
+    } else if(toEval.operator == null){
+       toEval.operator = val
       display.value = "";
       console.log(toEval);
       return;
     } else
+          if (toEval.num1 !== null && toEval.operator !==null) {
+          toEval.num2 = display.value;
+          console.log(toEval.num2);
+          console.log(toEval.operator);
+          console.log(toEval);
+        }
 
     // if(operators.includes(val)){
     //   if(toEval.operator == null){
@@ -77,11 +88,11 @@ for (i = 0; i < nums.length; i++) {
     // }else 
       if (val == "=") {
         console.log(val);
-        if (toEval.num1 !== 0) {
-          toEval.num2 = display.value;
-          console.log(toEval.num2);
-          console.log(toEval.operator);
-          console.log(toEval);
+        // if (toEval.num1 !== null) {
+        //   toEval.num2 = display.value;
+        //   console.log(toEval.num2);
+        //   console.log(toEval.operator);
+        //   console.log(toEval);
 
           switch (toEval.operator) {
             case "+":
@@ -101,8 +112,13 @@ for (i = 0; i < nums.length; i++) {
               display.value = result;
               break;
           }
-        }
       }
+      toEval.num1=result;
+      toEval.num2 = null
+      toEval.operator = null
+      console.log(toEval.num1)
+      console.log(toEval.num2)
+      console.log(toEval.operator)
       return
     }
 
