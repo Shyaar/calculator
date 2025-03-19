@@ -1,24 +1,4 @@
-const nums = [
-  "AC",
-  "+/-",
-  "%",
-  "/",
-  7,
-  8,
-  9,
-  "*",
-  4,
-  5,
-  6,
-  "-",
-  1,
-  2,
-  3,
-  "+",
-  ".",
-  0,
-  "=",
-];
+const nums = ["AC","+/-","%","/",7,8,9,"*",4,5,6,"-",1,2,3,"+",".",0,"=",];
 let toEval = {
   num1: null,
   operator: null,
@@ -77,23 +57,8 @@ for (i = 0; i < nums.length; i++) {
           console.log(toEval);
         }
 
-    // if(operators.includes(val)){
-    //   if(toEval.operator == null){
-    //   toEval.operator = val;
-    //   display.value = "";
-    //   console.log(val);
-    //   console.log(toEval.operator);
-    //   console.log(toEval);
-    // }
-    // }else 
       if (val == "=") {
         console.log(val);
-        // if (toEval.num1 !== null) {
-        //   toEval.num2 = display.value;
-        //   console.log(toEval.num2);
-        //   console.log(toEval.operator);
-        //   console.log(toEval);
-
           switch (toEval.operator) {
             case "+":
               result = Number(toEval.num1) + Number(toEval.num2);
@@ -147,7 +112,7 @@ for (i = 0; i < nums.length; i++) {
 
     if (val == "AC") {
       display.value = "";
-      toEval.num1 = 0;
+      toEval.num1 = null;
       toEval.num2 = null;
       toEval.operator = null;
     }
